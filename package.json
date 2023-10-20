@@ -4,7 +4,7 @@
   "description": "\"Cubicle\" is a place, where you can browse some of the popular Rubik cubes in the world and add some new cubes that you have discovered",
   "main": "index.js",
   "scripts": {
-    "start": "/src/index.js"
+    "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
