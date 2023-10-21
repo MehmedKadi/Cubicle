@@ -1,23 +1,18 @@
+//* Imports
 const express = require("express");
-const handlebars = require("express-handlebars");
-const path = require("path");
+const handlebarsConfig = require("./config/handlebarsConfig.js");
+const expressConfig = require("./config/expressConfig.js");
+const { PORT } = require("./constants.js");
+const routes = require("./router.js");
 
+// * LOCAL variables
 const app = express();
-const PORT = 5050;
 
-//* Handlebars configuration
-app.engine("hbs", handlebars.engine({ extname: "hbs" }));
-app.set("view engine", "hbs");
-app.set("views", "src/views");
+//* Configs
+expressConfig(app);
+handlebarsConfig(app);
 
-//* Set Up static files
-const staticFiles = express.static(path.resolve(__dirname, "public"));
-
-app.use(staticFiles);
-
-app.get("/", (req, res) => {
-  // res.send("Welcome to Home Page! :)");
-  res.render("index");
-});
+//* Routing
+app.use(routes);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}...`));
