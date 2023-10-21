@@ -2,7 +2,7 @@
   "name": "cubicle",
   "version": "1.0.0",
   "description": "\"Cubicle\" is a place, where you can browse some of the popular Rubik cubes in the world and add some new cubes that you have discovered",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index.js"
   },
