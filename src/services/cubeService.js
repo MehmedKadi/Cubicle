@@ -4,7 +4,7 @@ const cubes = [
   {
     id: "1nevib2twlo06pllf",
     name: "Cube1",
-    description: "Blue",
+    description: "Cool blue Cube",
     imageUrl: "https://cdn.fcglcdn.com/brainbees/images/products/720x720/13377727a.webp",
     difficultyLevel: 4,
   },
@@ -17,8 +17,8 @@ const cubes = [
   },
   {
     id: "1nevib1yklo06uanj",
-    name: "Cube3",
-    description: "Red",
+    name: "Red",
+    description: "Cool red Cube",
     imageUrl: "https://cubezz.com/images/201801/goods_img/5584_P_1516946006627.jpg",
     difficultyLevel: 2,
   },
@@ -33,6 +33,22 @@ exports.create = (cubeData) => {
   //   return newCube;
 };
 
-exports.getAll = () => {
-  return [...cubes];
+exports.getAll = (search, from, to) => {
+  let filterCubes = [...cubes];
+  if (search) {
+    filterCubes = filterCubes.filter((cube) =>
+      cube.name.toLowerCase().includes(search.toLowerCase())
+    );
+  }
+  if (from) {
+    filterCubes = filterCubes.filter((cube) => cube.difficultyLevel >= Number(from));
+  }
+  if (to) {
+    filterCubes = filterCubes.filter((cube) => cube.difficultyLevel <= Number(to));
+  }
+  return [...filterCubes];
+};
+
+exports.getCube = (id) => {
+  return cubes.find((cube) => cube.id === id);
 };
