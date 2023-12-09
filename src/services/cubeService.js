@@ -1,13 +1,7 @@
 const Cube = require("../models/Cube.js");
 
 const cubes = [
-  // {
-  //   id: "1nevib2twlo06pllf",
-  //   name: "Cube1",
-  //   description: "Cool blue Cube",
-  //   imageUrl: "https://cdn.fcglcdn.com/brainbees/images/products/720x720/13377727a.webp",
-  //   difficultyLevel: 4,
-  // },
+
   // {
   //   id: "1nevib2twlo06r9t6",
   //   name: "Cube2",
