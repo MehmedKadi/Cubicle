@@ -27,6 +27,10 @@ exports.getAll = async (search, from, to) => {
   return [...filterCubes];
 };
 
-exports.getCube = (id) => Cube.findById(id);
-// return Cube.findById(id);
-//? return cubes.find((cube) => cube.id === id);
+exports.getCube = (id) => Cube.findById(id); // return Cube.findById(id); //? return cubes.find((cube) => cube.id === id);
+
+exports.attachAccessory = async (cubeId, accessoryId) => {
+  const cube = await this.getCube(cubeId);
+  cube.accessories.push(accessoryId);
+  return cube.save();
+};
